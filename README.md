@@ -3,6 +3,13 @@
 ## HW8([Task description](https://github.com/b06608062/full-stack-chatroom/blob/master/hw8.pdf))
 ![This is an image](https://github.com/b06608062/full-stack-chatroom/blob/master/demo_image/截圖%202022-03-25%20下午8.57.04.png)
 
+## Main function
+* User **sign up** and **log in**
+* Backend **password encryption** by bcrypt
+* Implement frontend **local storage** to save user_id
+* Support **create chatroom**、**add room members** and **customized room name
+* Support **self**、**one2one** and **many2many** chatroom typ
+
 ## Run in local
 1. Download and Install
 ```
@@ -18,14 +25,7 @@ yarn install
 
 ## App 說明
 
-＊實作使用者註冊與登入
 
-＊實作 `passward` bcrypt加密，使用者密碼以不可逆hash形式儲存
-
-＊實作後端密碼驗證
-
-＊實作 local storage，前端重新整理或重開 input box 中會自動顯示最後一次 sign in 時
-的名字
 
 ＊實作 `clear` button 
 
