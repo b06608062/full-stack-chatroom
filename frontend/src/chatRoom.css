@@ -1,0 +1,11 @@
+.ant-tabs-nav{
+    margin-bottom: 5px !important;
+}
+.ant-tabs-content {
+    width: 100%;
+    height: 100%;
+}
+
+.ant-tabs-tabpane{
+    padding: 0 !important;
+}
