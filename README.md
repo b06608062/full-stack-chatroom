@@ -10,7 +10,7 @@
 * Support **create chatroom**、**add room members** and **customized room name**.
 * Support **self**、**one2one** and **many2many** chatroom types.
 * Support **send message**、**clear messages** and **new message info**.
-* Can **switch the chatroom** and **display room members**
+* Can **switch the chatroom** and **display room members**.
 
 ## Run in local
 1. Download and Install
