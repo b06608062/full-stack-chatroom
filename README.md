@@ -6,7 +6,7 @@
 ## Main function
 * Users  `sign up` and `log in`.
 * Backend `password encryption` by bcrypt.
-* Implement frontend `local storage` to save user_id.
+* Save user_id by `local storage`.
 * Support `create chatroom`、`add room members` and `customized room name`.
 * Support `self`、`one2one` and `many2many` chatroom types.
 * Support `send message`、`clear messages` and `new message info`.
