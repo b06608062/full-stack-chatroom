@@ -19,7 +19,7 @@ git clone https://github.com/b06608062/full-stack-chatroom.git
 cd ./full-stack-chatroom
 yarn install
 ```
-2. Add `.env` file and fill the **MONGO_URL** with mongodb url.(You can refer to [.env.defaults](https://github.com/b06608062/full-stack-chatroom/blob/master/backend/.env.defaults))
+2. Add `.env` file and fill the **MONGO_URL** with mongodb url(You can refer to [.env.defaults](https://github.com/b06608062/full-stack-chatroom/blob/master/backend/.env.defaults)).
 4. Open two terminal windows, and go to `/full-stack-chatroom` folder.
 5. In one window, run `yarn server` for **backend**.
 6. The other window, run `yarn start` for **frontend**.
