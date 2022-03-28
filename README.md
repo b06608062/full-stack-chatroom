@@ -13,7 +13,7 @@
 * Can `switch the chatroom` and `display room members`.
 
 ## Run in local
-1. Download and install.
+1. Download and install packages.
 ```
 git clone https://github.com/b06608062/full-stack-chatroom.git
 cd ./full-stack-chatroom
