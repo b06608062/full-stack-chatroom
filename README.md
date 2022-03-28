@@ -10,7 +10,7 @@
 * Can `create chatroom`、`add room members` and `customize room name`.
 * Can `send message` or `clear all messages` in chatroom.
 * Support three chatroom types: **self / one2one / many2many**
-* Support `new message info` and `chatroom switching`.
+* Support `new message informing` and `chatroom switching`.
 
 ## Run in local
 1. Download and install packages.
