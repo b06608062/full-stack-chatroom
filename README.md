@@ -7,10 +7,10 @@
 * Users `sign up` and `log in`.
 * Backend `password encryption` by bcrypt.
 * Frontend `save user_id` by local storage.
-* Can `create chatroom`、`add room members` or `customize room name`.
+* Can `create chatroom`、`add room members` and `customize room name`.
 * Can `send message` or `delete message` in chatroom.
 * Support three chatroom types: **self** / **one2one** / **many2many**.
-* Support `new message info` and `switch chatroom`.
+* Support `new message info` and `chatroom switching`.
 
 ## Run in local
 1. Download and install packages.
