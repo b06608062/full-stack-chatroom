@@ -24,4 +24,3 @@ yarn install
 5. In one window, run `yarn server` for **backend**.
 6. The other window, run `yarn start` for **frontend**.
 7. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-8. 
