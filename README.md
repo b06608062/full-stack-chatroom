@@ -4,7 +4,7 @@
 ![This is an image](https://github.com/b06608062/full-stack-chatroom/blob/master/demo_image/截圖%202022-03-25%20下午8.57.04.png)
 
 ## Main function
-* User **sign up** and **log in**.
+* User  ``sign up`` and ``log in``.
 * Backend **password encryption** by bcrypt.
 * Implement frontend **local storage** to save user_id.
 * Support **create chatroom**、**add room members** and **customized room name**.
