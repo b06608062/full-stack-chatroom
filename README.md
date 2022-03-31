@@ -4,13 +4,13 @@
 ![This is an image](https://github.com/b06608062/full-stack-chatroom/blob/master/demo_image/截圖%202022-03-25%20下午8.57.04.png)
 
 ## Main function
-* Users `sign up` and `log in`.
-* Backend `password encryption` by bcrypt.
-* Frontend `save user_id` by local storage.
-* Can `create chatroom`、`add room members` and `customize room name`.
-* Can `send message` or `clear all messages` in chatroom.
-* Support three chatroom types: **self / one2one / many2many**
-* Support `new message informing` and `chatroom switching`.
+* Users **sign up** and **log in**.
+* Backend **password encryption** by bcrypt.
+* Frontend **save user_id** by local storage.
+* Can **create chatroom**、**add room members** and **customize room name**.
+* Can **send message** or **clear all messages** in chatroom.
+* Support three chatroom types: **self**、**one2one** and **many2many**
+* Support **new message informing** and **chatroom switching**.
 
 ## Run in local
 1. Download and install packages.
