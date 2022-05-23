@@ -1,18 +1,19 @@
-import http from 'http'
-import express from 'express'
-import dotenv from 'dotenv-defaults'
-import mongoose from 'mongoose'
-import WebSocket from 'ws'
-import { signUp, signIn, createRoom, input, clear } from './wssConnect'
+import http from 'http';
+import express from 'express';
+import dotenv from 'dotenv-defaults';
+import mongoose from 'mongoose';
+import WebSocket from 'ws';
+import { signUp, signIn, createRoom, input, clear } from './wssConnect';
 
 dotenv.config();
-if(!process.env.MONGO_URL){
-    console.error("Missing MONGO_URL!!!");
-    process.exit(1);
+if (!process.env.MONGO_URL) {
+  console.error("Missing MONGO_URL!!!");
+  process.exit(1);
 };
+
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
@@ -26,38 +27,41 @@ db.once('open', function () {
   console.log("mongo connected!");
 
   wss.on('connection', (ws) => {
-    let username = undefined
+    let username = undefined;
+
     ws.onmessage = async (byteString) => {
-        const { data } = byteString;
-        const  [task, payload] = JSON.parse(data);
-        switch(task){
-            case 'signUp': {
-              signUp(payload, ws, channels);
-              break
-            }
-            case 'signIn': {
-              if(signIn(payload, ws, channels)) username = payload.username;
-              break
-            }
-            case 'creatRoom': {
-              createRoom(payload, channels);
-              break
-            }
-            case 'input': {
-              input(payload, channels);
-              break
-            }
-            case 'clear': {
-              clear(payload, channels);
-              break
-            }
-            default:
+      const { data } = byteString;
+      const  [task, payload] = JSON.parse(data);
+      switch (task) {
+        case 'signUp': {
+          signUp(payload, ws, channels);
+          break
         }
+        case 'signIn': {
+          if (signIn(payload, ws, channels)) username = payload.username;
+          break
+        }
+        case 'createRoom': {
+          createRoom(payload, channels);
+          break
+        }
+        case 'input': {
+          input(payload, channels);
+          break
+        }
+        case 'clear': {
+          clear(payload, channels);
+          break
+        }
+        default:
+          break
+      }
     }
+    
     ws.onclose = () => {
       delete channels[username];
     }
-  })
+  });
 
   const port = process.env.PORT || 4000;
   server.listen(port, () => {

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -12,7 +12,7 @@ const ChatRoomsSchema = new Schema({
 });
 
 // Creating a table within database with the defined schema
-const ChatRooms = mongoose.model('BongoChatRooms', ChatRoomsSchema);
+const ChatRooms = mongoose.model('ChatRooms', ChatRoomsSchema);
 
 // Exporting table for querying and mutating
 export default ChatRooms;

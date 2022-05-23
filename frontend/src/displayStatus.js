@@ -1,10 +1,10 @@
-import { message } from 'antd'
+import { message } from 'antd';
 
 const displayStatus = (payload) => {
-  if(payload.msg){
+  if (payload.msg) {
     const { type, msg } = payload;
     const content = { content: msg, duration: 1 };
-    switch(type){
+    switch (type) {
       case 'success': {
         message.success(content);
         break
@@ -17,8 +17,8 @@ const displayStatus = (payload) => {
       default:
         message.error(content);
         break
-    };
-  };
+    }
+  }
 };
 
 export default displayStatus;

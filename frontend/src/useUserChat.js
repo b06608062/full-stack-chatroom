@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react'
-import displayStatus from './displayStatus'
+import { createContext, useContext, useState, useEffect } from 'react';
+import displayStatus from './displayStatus';
 
 const client = new WebSocket('ws://localhost:4000');
 console.log(client);
@@ -22,35 +22,37 @@ const UserChatProvider = (props) => {
     const [users, setUsers] = useState([]);
     const [status, setStatus] = useState({});
     const [signUpBoard, setSignUpBoard] = useState(false);
-    
-    const sendMessage = (payload) => {
-        if(payload.body.trim().length===0){
-            displayStatus({ type: "error", msg: "Message body is empty." });
-            return
-        }
-        sendData(['input', payload]);
-    };
 
-    const clearMessage = (payload) => {
-        sendData(['clear', payload]);
-    };
-
-    const createRoom = (payload) => {
-        sendData(['creatRoom', payload]);
-    };
+    const signIn = (payload) => {
+        if (payload.username.length === 0) displayStatus({ type: "error", msg: "Missing username." });
+        else if (payload.password.length === 0) displayStatus({ type: "error", msg: "Missing password." });
+        else sendData(['signIn', payload]);
+    }
 
     const signUp = (payload) => {
-        if(payload.username.indexOf(' ')!==-1){
+        if (payload.username.indexOf(' ') !== -1) {
             displayStatus({ type: "error", msg: "Invaild username." });
             return
         }
-        sendData(['signUp', payload]);
-    };
 
-    const signIn = (payload) => {
-        if(payload.username.length===0) displayStatus({ type: "error", msg: "Missing username." });
-        else if (payload.password.length===0) displayStatus({ type: "error", msg: "Missing password." });
-        else sendData(['signIn', payload]);
+        sendData(['signUp', payload]);
+    }
+    
+    const sendMessage = (payload) => {
+        if (payload.body.trim().length === 0) {
+            displayStatus({ type: "error", msg: "Message body is empty." });
+            return
+        }
+
+        sendData(['input', payload]);
+    }
+
+    const clearMessage = (payload) => {
+        sendData(['clear', payload]);
+    }
+
+    const createRoom = (payload) => {
+        sendData(['createRoom', payload]);
     }
 
     useEffect(() => {
@@ -64,13 +66,13 @@ const UserChatProvider = (props) => {
     client.onmessage = (byteString) => {
         const { data } = byteString;
         const [task, payload] = JSON.parse(data);
-        switch(task){
+        switch (task) {
             case 'status': {
                 setStatus(payload);
                 break
             }
             case 'signUp': {
-                if(payload) setSignUpBoard(false);
+                if (payload) setSignUpBoard(false);
                 break
             }
             case 'signIn': {
@@ -85,12 +87,12 @@ const UserChatProvider = (props) => {
             case 'updateMessages': { 
                 const { name, rId, body, timestamp } = payload;
                 const newChatRooms = [...chatRooms];
-                const room = newChatRooms.find(room => room.rId===rId);
-                room.messages = [...room.messages, {name, body, timestamp}]
+                const room = newChatRooms.find(room => room.rId === rId);
+                room.messages = [...room.messages, { name, body, timestamp }];
                 setChatRooms(newChatRooms);
                 break
             }
-            case 'creatRoom': {
+            case 'createRoom': {
                 const newChatRooms = [...chatRooms, payload];
                 setChatRooms(newChatRooms);
                 break
@@ -98,13 +100,13 @@ const UserChatProvider = (props) => {
             case 'cleared': {
                 const { rId } = payload;
                 const newChatRooms = [...chatRooms];
-                newChatRooms.find(room => room.rId===rId).messages = [];
+                newChatRooms.find(room => room.rId === rId).messages = [];
                 setChatRooms(newChatRooms);    
                 break            
             }
             default:
                 break
-        };
+        }
     };
 
     return (
@@ -115,21 +117,21 @@ const UserChatProvider = (props) => {
             chatRooms,
             users,
             signUpBoard,
-            setSignUpBoard,
             setMe,
+            setSignUpBoard,
             signIn,
             signUp,
-            createRoom,
             sendMessage,
-            clearMessage
+            clearMessage,
+            createRoom
           }}
           {...props}
         />
-      )
+    );
 };
 
 function useUserChat() {
-    return useContext(UserChatContext)
+    return useContext(UserChatContext);
 };
   
 export { UserChatProvider, useUserChat };

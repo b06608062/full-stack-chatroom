@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -10,7 +10,7 @@ const UsersSchema = new Schema({
 });
 
 // Creating a table within database with the defined schema
-const Users = mongoose.model('BongoUsers', UsersSchema);
+const Users = mongoose.model('Users', UsersSchema);
 
 // Exporting table for querying and mutating
 export default Users;
